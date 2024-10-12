@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+})
+
+
 // Select elements
 const addCart = document.querySelectorAll('.addCart'); // Get all "Add to Cart" buttons
 const cartCount = document.getElementById('cartCount'); // Select the cart count element
@@ -10,22 +15,13 @@ let cart = []; // Initialize the cart array
 addCart.forEach((button) => {
     button.addEventListener('click', () => {
         const productElement = button.parentElement; // Get the parent element (the product div)
-
         const productName = productElement.querySelector('h2').textContent; 
         const productPrice = productElement.querySelector('.price').textContent;
 
-
-
-const existingProduct = cart.find(item => item.name === productName);
-if (existingProduct) {
-    alert(`${productName} is already in the cart`);
-    return; 
-}
-
-        // Add the product to the cart array
+        // Add the product to the cart array (allow duplicates)
         cart.push({ name: productName, price: productPrice });
 
-        // Update the cart count
+        // Update the cart count (total number of items in the cart)
         cartCount.textContent = cart.length;
 
         // Create a new element for the cart item
@@ -51,14 +47,16 @@ if (existingProduct) {
 
 // Function to remove an item from the cart
 function removeFromCart(productName, cartItem) {
-    // Remove the item from the cart array
-    cart = cart.filter(item => item.name !== productName); 
+    const productIndex = cart.findIndex(item => item.name === productName);
+    if (productIndex > -1) {
+        cart.splice(productIndex, 1); // Remove one instance of the product
+    }
 
     // Remove the item from the DOM
     cartItem.remove(); 
     
-    // Update the cart count
-    cartCount.textContent = cart.length; // This should correctly decrement the count
+    // Update the cart count (reflects total number of items in the cart)
+    cartCount.textContent = cart.length;
 }
 
 // Proceed to checkout
@@ -67,6 +65,11 @@ proceedButton.addEventListener('click', () => {
         alert("Your cart is empty!");
         return;
     }
+
+    localStorage.setItem('cart', JSON,stingray(cart));
+    window.location.href = 'checkout.html';
+
+
 
     // Calculate total price
     let total = cart.reduce((sum, item) => {
