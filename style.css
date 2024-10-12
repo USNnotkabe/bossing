@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+} 
+
+:root {
+    --background-color: #fff;
+    --text-color: white;
+    --border-radius: 20px;
+    --primary-color: #363432;
+    --secondary-color: #5a5555;
+    --button-color: #ff7f50;
+    --cart-bg-color: #363432;
+    --cart-text-color: #eee;
+}
+
+.container {
+    width: 900px;
+    max-width: 90vw;
+    margin: auto;
+    text-align: center;
+    padding-right: 100px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.icon-cart {
+    position: relative;
+}
+
+.icon-cart span {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    justify-content: center; 
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: -15px;
+}
+
+.listProduct {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.listProduct .item {
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.listProduct .item:hover {
+    transform: translateY(-5px);
+}
+
+.listProduct .item img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.listProduct .item .price {
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+}
+
+.listProduct .item button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.listProduct .item button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Shopping Cart */
+.cartTab {
+    width: 400px;
+    background-color: var(--cart-bg-color);
+    color: var(--cart-text-color);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cartTab h1 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.cartList {
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+/* Checkout Section */
+.checkout-section {
+    padding: 15px 0;
+    width: 15px 0;
+}
+
+.checkout-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.proceed-checkout {
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.proceed-checkout:hover {
+    background-color: darkorange;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.removeButton{
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointers;
+    margin-top: 10px;
+}
+.removeButton:hover{
+    background-color: darkorange;
+}
+.checkout-section {
+    padding: 15px 0;
+}
+.checkout-section h3{
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+.proceed-checkout {
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer ;
+}
+.proceed-checkout:hover {
+    background-color: darkorange;
+}
